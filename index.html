@@ -15,36 +15,43 @@
     }
     header {
       background: #0a1c2e;
-      padding: 38px 0 28px 0;
-      text-align: center;
+      padding: 24px 0 18px 0;
       box-shadow: 0 6px 24px 0 rgba(14,22,50,0.13);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       position: relative;
+      z-index: 10;
     }
     .logo-img {
-      width: 92px;
-      height: 92px;
-      border-radius: 24px;
-      object-fit: cover;
+      width: 74px;
+      height: 74px;
+      border-radius: 14px;
+      object-fit: contain;
       background: #fff;
-      box-shadow: 0 4px 24px #ffd70055;
-      margin-bottom: 8px;
+      box-shadow: 0 2px 16px #ffd70055;
+      margin-left: 28px;
+    }
+    .header-center {
+      flex: 1;
+      text-align: center;
     }
     h1 {
       color: #ffd700;
-      font-size: 2.5em;
-      margin: 0 0 10px 0;
+      font-size: 2.2em;
+      margin: 0 0 7px 0;
       letter-spacing: 2px;
       font-weight: 700;
     }
     .slogan {
       color: #ffd700;
-      font-size: 1.2em;
-      margin-bottom: 12px;
+      font-size: 1.08em;
+      margin-bottom: 7px;
       letter-spacing: 1.5px;
     }
     nav {
-      margin: 18px 0 0 0;
-      font-size: 1.1em;
+      margin: 15px 0 0 0;
+      font-size: 1em;
       display: flex;
       justify-content: center;
       gap: 36px;
@@ -54,23 +61,26 @@
       text-decoration: none;
       font-weight: 600;
       position: relative;
+      padding-bottom: 2px;
       transition: color 0.2s;
     }
     nav a:hover {
       color: #fff;
+      border-bottom: 2px solid #ffd700;
     }
     .lang-switch {
       position: absolute;
-      top: 28px;
-      right: 38px;
+      top: 20px;
+      right: 30px;
       font-size: 1em;
+      z-index: 11;
     }
     .lang-switch button {
       background: none;
       border: none;
       color: #ffd700;
-      font-weight: 600;
-      margin-left: 8px;
+      font-weight: 700;
+      margin-left: 7px;
       font-size: 1em;
       cursor: pointer;
       transition: color 0.18s;
@@ -81,73 +91,114 @@
       text-decoration: underline;
     }
     .section {
-      max-width: 950px;
+      max-width: 1050px;
       margin: 40px auto 0 auto;
-      padding: 28px 34px;
-      background: rgba(255,255,255,0.07);
+      padding: 28px 36px;
+      background: rgba(255,255,255,0.08);
       border-radius: 24px;
       box-shadow: 0 8px 34px 0 rgba(0,0,0,0.11);
       animation: fadein 0.8s cubic-bezier(.23,1.02,.59,.95);
+      margin-bottom: 22px;
     }
     .section h2 {
       color: #ffd700;
       margin-top: 0;
       font-size: 2em;
-      margin-bottom: 10px;
-    }
-    .offices, .contacts, .reviews {
-      margin-top: 22px;
-    }
-    .gold {
-      color: #ffd700;
-      font-weight: 600;
-    }
-    .review {
-      margin-bottom: 16px;
-      padding-left: 18px;
-      border-left: 4px solid #ffd70077;
-      font-style: italic;
-    }
-    .office-list li, .contacts-list li {
-      margin-bottom: 7px;
-    }
-    .photo-row {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      margin-top: 18px;
-      flex-wrap: wrap;
-    }
-    .photo-row img {
-      border-radius: 14px;
-      width: 180px;
-      height: 120px;
-      object-fit: cover;
-      box-shadow: 0 4px 14px #1b2d5044;
-      transition: transform 0.23s;
-    }
-    .photo-row img:hover {
-      transform: scale(1.07);
-      box-shadow: 0 8px 22px #ffd70044;
-    }
-    footer {
-      text-align:center;
-      margin: 48px 0 18px 0;
-      font-size: 1.05em;
-      color: #ccd;
+      margin-bottom: 12px;
       letter-spacing: 1px;
     }
-    @media (max-width: 800px) {
-      .section { padding: 15px 6px; }
-      nav { gap: 17px;}
-      .lang-switch { right: 10px; }
-      .photo-row img { width: 120px; height: 80px;}
+    .photo-row, .slider-row {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 14px;
+      flex-wrap: wrap;
     }
-    @media (max-width: 500px) {
-      h1 { font-size: 1.1em;}
-      .section { margin: 18px 2px; padding: 7px 3px;}
-      .photo-row { gap: 6px; }
-      .photo-row img { width: 88px; height: 58px;}
+    .photo-row img, .slider-img {
+      border-radius: 13px;
+      width: 230px;
+      height: 145px;
+      object-fit: cover;
+      box-shadow: 0 4px 16px #1b2d5044;
+      transition: transform 0.23s;
+    }
+    .photo-row img:hover, .slider-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 22px #ffd70044;
+    }
+    .slider-row {
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .slider-btn {
+      font-size: 2em;
+      background: none;
+      border: none;
+      color: #ffd700;
+      cursor: pointer;
+      transition: color 0.19s;
+      padding: 0 8px;
+    }
+    .slider-btn:hover { color: #fff;}
+    .office-list li, .contacts-list li { margin-bottom: 7px;}
+    .partners-logos img {
+      margin: 0 20px 14px 0;
+      vertical-align: middle;
+      height: 38px;
+      filter: grayscale(50%) brightness(1.15) drop-shadow(0 2px 4px #ffd70022);
+      transition: filter 0.19s;
+    }
+    .partners-logos img:hover { filter: none;}
+    .review {
+      margin-bottom: 16px;
+      padding-left: 15px;
+      border-left: 4px solid #ffd70077;
+      font-style: italic;
+      opacity: 0.93;
+    }
+    .contact-btns {
+      margin-top:18px; text-align:center;
+    }
+    .contact-btns a {
+      display:inline-block;margin:0 10px;padding:10px 22px;background:#25D366;color:#fff;
+      font-weight:700;border-radius:7px;text-decoration:none;font-size:1.1em;
+      box-shadow:0 2px 10px #25d36633;transition:background 0.2s;
+    }
+    .contact-btns a.telegram {
+      background:#229ED9; box-shadow:0 2px 10px #229ed933;
+    }
+    .contact-btns a:hover { filter: brightness(1.15);}
+    .form-field {
+      width:100%;padding:10px;margin:7px 0;border-radius:7px;border:none;font-size:1em;
+    }
+    .lux-btn {
+      width:100%;padding:13px;background:#ffd700;color:#0a1c2e;border:none;
+      font-size:1.15em;font-weight:700;border-radius:8px;transition:background 0.22s;cursor:pointer;
+      box-shadow: 0 2px 12px #ffd70022;
+    }
+    .lux-btn:hover { background:#ffe966; }
+    footer {
+      margin-top:38px;padding:24px 0;background:#0a1c2e;color:#ffd700;
+      font-size:1.1em;box-shadow:0 -2px 32px #ffd70011;letter-spacing:1px;
+      text-align:center;
+    }
+    footer span { color:#fff;font-size:0.97em;}
+    @media (max-width: 800px) {
+      .section { padding: 12px 2px; }
+      nav { gap: 17px;}
+      .lang-switch { right: 8px; top:12px;}
+      .logo-img { margin-left: 6px;}
+      .photo-row img, .slider-img { width: 112px; height: 72px;}
+    }
+    @media (max-width: 520px) {
+      header { flex-direction:column;align-items:center;}
+      .logo-img { margin:0 auto 5px auto;}
+      .header-center {text-align:center;}
+      h1 { font-size: 1.25em;}
+      .section { margin: 10px 1px; padding: 5px 1px;}
+      .photo-row { gap: 7px; }
+      .slider-img { width: 80px; height: 48px;}
     }
     @keyframes fadein {
       from { opacity: 0; transform: translateY(40px);}
@@ -155,23 +206,24 @@
     }
   </style>
   <script>
-    // Простая мультиязычность на RU/EN/AR
+    // Простейшая мультиязычность на RU/EN/AR
     const translations = {
       ru: {
-        nav: ['О компании','Услуги','Контакты','Отзывы'],
-        about: `<b>Мы предлагаем индивидуальные решения для бизнеса и частных клиентов, гарантируя надежную и своевременную доставку грузов, оборудования и товаров по всему миру.</b><br>
-          <ul>
-            <li>Основана в 2012 году. Работаем с клиентами в более чем 100 странах.</li>
-            <li>Глобальная сеть: офисы в ОАЭ, Грузии, России, Германии, Австрии, Армении</li>
-            <li>Онлайн-погрузка, контроль, доступ к камерам, прозрачность процессов</li>
-            <li>Собственный склад и компания-перевозчик</li>
-          </ul>`,
+        nav: ['О компании','Услуги','Партнёры','Галерея','Контакты','Отзывы'],
+        about: `<b>Мы предлагаем индивидуальные решения для бизнеса и частных клиентов, гарантируя надежную и своевременную доставку грузов, оборудования и товаров по всему миру.</b>
+        <ul>
+          <li>Основана в 2012 году. Работаем с клиентами в более чем 100 странах.</li>
+          <li>Глобальная сеть: офисы в ОАЭ, Грузии, России, Германии, Австрии, Армении</li>
+          <li>Онлайн-погрузка, контроль, доступ к камерам, прозрачность процессов</li>
+          <li>Собственный склад и компания-перевозчик</li>
+        </ul>`,
         services: `<ul>
           <li>Мультимодальные перевозки (морской, воздушный, наземный транспорт)</li>
           <li>Оптовые поставки автозапчастей, автомобилей, техники, мебели</li>
           <li>Таможенное оформление под ключ</li>
           <li>Гарантии и персонализированный сервис</li>
         </ul>`,
+        partners: `Наши ключевые партнёры:`,
         offices: `<li><b>ОАЭ:</b> +971 55 891 3535</li>
           <li><b>Грузия:</b> +995 514 004 000</li>
           <li><b>Россия (Москва):</b> +7 977 860 3535</li>
@@ -186,11 +238,18 @@
           '“Безупречная доставка и персональный подход.” — Ahmed, Дубай',
           '“Наш основной поставщик автозапчастей.” — Виктория, Германия'
         ],
-        slogan: 'Поставляем лучшее с 2012 года'
+        slogan: 'Поставляем лучшее с 2012 года',
+        contact_form: {
+          name: "Ваше имя",
+          email: "E-mail",
+          message: "Сообщение",
+          send: "Отправить",
+          thanks: "Спасибо, ваше сообщение отправлено!"
+        }
       },
       en: {
-        nav: ['About','Services','Contacts','Reviews'],
-        about: `<b>We offer customized solutions for businesses and individuals, ensuring reliable and timely delivery of goods, equipment, and products worldwide.</b><br>
+        nav: ['About','Services','Partners','Gallery','Contacts','Reviews'],
+        about: `<b>We offer customized solutions for businesses and individuals, ensuring reliable and timely delivery of goods, equipment, and products worldwide.</b>
         <ul>
           <li>Founded in 2012. We work with clients in over 100 countries.</li>
           <li>Global network: Offices in UAE, Georgia, Russia, Germany, Austria, Armenia</li>
@@ -203,6 +262,7 @@
           <li>Customs clearance turnkey</li>
           <li>Guarantees and personalized service</li>
         </ul>`,
+        partners: `Our key partners:`,
         offices: `<li><b>UAE:</b> +971 55 891 3535</li>
           <li><b>Georgia:</b> +995 514 004 000</li>
           <li><b>Russia (Moscow):</b> +7 977 860 3535</li>
@@ -217,11 +277,18 @@
           '"Perfect delivery and a personalized approach." — Ahmed, Dubai',
           '"Our main supplier of auto parts." — Victoria, Germany'
         ],
-        slogan: 'Delivering Excellence Since 2012'
+        slogan: 'Delivering Excellence Since 2012',
+        contact_form: {
+          name: "Your name",
+          email: "E-mail",
+          message: "Message",
+          send: "Send",
+          thanks: "Thank you, your message has been sent!"
+        }
       },
       ar: {
-        nav: ['عن الشركة','الخدمات','التواصل','آراء العملاء'],
-        about: `<b>نقدم حلولاً مخصصة للشركات والعملاء الأفراد، مع ضمان التسليم الموثوق وفي الوقت المحدد للبضائع والمعدات والمنتجات حول العالم.</b><br>
+        nav: ['عن الشركة','الخدمات','الشركاء','معرض الصور','التواصل','آراء العملاء'],
+        about: `<b>نقدم حلولاً مخصصة للشركات والعملاء الأفراد، مع ضمان التسليم الموثوق وفي الوقت المحدد للبضائع والمعدات والمنتجات حول العالم.</b>
         <ul>
           <li>تأسست في 2012. نعمل مع عملاء في أكثر من 100 دولة.</li>
           <li>شبكة عالمية: مكاتب في الإمارات، جورجيا، روسيا، ألمانيا، النمسا، أرمينيا</li>
@@ -234,6 +301,7 @@
           <li>تخليص جمركي متكامل</li>
           <li>ضمانات وخدمة شخصية</li>
         </ul>`,
+        partners: `شركاؤنا الرئيسيون:`,
         offices: `<li><b>الإمارات:</b> +971 55 891 3535</li>
           <li><b>جورجيا:</b> +995 514 004 000</li>
           <li><b>روسيا (موسكو):</b> +7 977 860 3535</li>
@@ -248,12 +316,30 @@
           "“توصيل مثالي وتعامل شخصي.” — أحمد، دبي",
           "“المورد الرئيسي لقطع الغيار لدينا.” — فيكتوريا، ألمانيا"
         ],
-        slogan: "نقدم الأفضل منذ 2012"
+        slogan: "نقدم الأفضل منذ 2012",
+        contact_form: {
+          name: "اسمك",
+          email: "البريد الإلكتروني",
+          message: "رسالة",
+          send: "إرسال",
+          thanks: "شكرًا لك، تم إرسال رسالتك!"
+        }
       }
     };
 
-    let lang = 'ru';
+    // Картинки галереи/слайдера (ваши фото)
+    const photos = [
+      "WhatsApp Image 2025-07-18 at 21.07.29.jpeg",
+      "WhatsApp Image 2025-07-18 at 21.07.28 (1).jpeg",
+      "WhatsApp Image 2025-07-18 at 21.07.28.jpeg",
+      "WhatsApp Image 2025-07-18 at 21.07.27 (2).jpeg",
+      "WhatsApp Image 2025-07-18 at 21.07.27 (1).jpeg",
+      "WhatsApp Image 2025-07-18 at 21.07.27.jpeg",
+      "WhatsApp Image 2025-07-18 at 21.07.26 (1).jpeg",
+      "WhatsApp Image 2025-07-18 at 21.07.26.jpeg"
+    ];
 
+    let lang = 'ru';
     function switchLang(newLang) {
       lang = newLang;
       // Навигация
@@ -263,6 +349,8 @@
       document.getElementById('about').innerHTML = translations[lang].about;
       // Services
       document.getElementById('services').innerHTML = translations[lang].services;
+      // Partners
+      document.getElementById('partners-title').textContent = translations[lang].partners;
       // Offices
       document.getElementById('offices').innerHTML = translations[lang].offices;
       // Contacts
@@ -271,6 +359,11 @@
       document.getElementById('reviews').innerHTML = translations[lang].reviews.map(r=>`<div class="review">${r}</div>`).join('');
       // Слоган
       document.querySelector('.slogan').textContent = translations[lang].slogan;
+      // Contact form
+      document.getElementById('cf-name').placeholder = translations[lang].contact_form.name;
+      document.getElementById('cf-email').placeholder = translations[lang].contact_form.email;
+      document.getElementById('cf-msg').placeholder = translations[lang].contact_form.message;
+      document.getElementById('cf-send').textContent = translations[lang].contact_form.send;
       // RTL для арабского
       document.body.dir = (lang==='ar') ? 'rtl' : 'ltr';
 
@@ -279,41 +372,58 @@
         btn.classList.toggle('active', btn.dataset.lang===lang);
       });
     }
+    // Слайдер фото
+    let i=0;
+    function slide(dir){
+      i=(i+dir+photos.length)%photos.length;
+      document.getElementById('slideimg').src=photos[i];
+    }
 
     window.onload = function() {
       switchLang('ru');
       document.querySelectorAll('.lang-switch button').forEach(btn=>{
         btn.onclick = ()=>switchLang(btn.dataset.lang);
       });
+      // Слайдер
+      document.getElementById('slideimg').src = photos[0];
+      // Галерея миниатюр
+      let gal = document.getElementById('gallery-thumbs');
+      gal.innerHTML = photos.map((src,idx)=>`<img src="${src}" class="slider-img" onclick="document.getElementById('slideimg').src='${src}'">`).join('');
+      // Форма
+      document.getElementById('contact-form').onsubmit = function(e){
+        e.preventDefault();
+        document.getElementById('cf-result').textContent = translations[lang].contact_form.thanks;
+        setTimeout(()=>{document.getElementById('cf-result').textContent = "";}, 2000);
+        this.reset();
+      }
     }
   </script>
 </head>
 <body>
   <header>
+    <img src="WhatsApp Image 2025-07-18 at 21.07.30.jpeg" class="logo-img" alt="Golden Runat logo">
+    <div class="header-center">
+      <h1>Golden Runat General Trading</h1>
+      <div class="slogan">Поставляем лучшее с 2012 года</div>
+      <nav>
+        <a href="#about-section">О компании</a>
+        <a href="#services-section">Услуги</a>
+        <a href="#partners-section">Партнёры</a>
+        <a href="#gallery-section">Галерея</a>
+        <a href="#contacts-section">Контакты</a>
+        <a href="#reviews-section">Отзывы</a>
+      </nav>
+    </div>
     <div class="lang-switch">
       <button data-lang="ru" class="active">RU</button> |
       <button data-lang="en">EN</button> |
       <button data-lang="ar">AR</button>
     </div>
-    <img src="https://scontent-ams4-1.cdninstagram.com/v/t51.2885-19/439164286_965369281723690_4272486001800822944_n.jpg?stp=dst-jpg_s320x320&_nc_ht=scontent-ams4-1.cdninstagram.com&_nc_cat=101&_nc_ohc=Itbfh8us8igQ7kNvgF9k1jX&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AYBNbEY6qgTZzUOuYwYpGizfJU7XQ8SyK1hb7Y3oN5nJiw&oe=6682B5A7&_nc_sid=ee987c" class="logo-img" alt="Golden Runat logo">
-    <h1>Golden Runat General Trading</h1>
-    <div class="slogan">Поставляем лучшее с 2012 года</div>
-    <nav>
-      <a href="#about-section">О компании</a>
-      <a href="#services-section">Услуги</a>
-      <a href="#contacts-section">Контакты</a>
-      <a href="#reviews-section">Отзывы</a>
-    </nav>
   </header>
 
   <div class="section" id="about-section">
     <h2>О компании</h2>
     <div id="about"></div>
-    <div class="photo-row">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Warehouse">
-      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Logistics">
-      <img src="https://images.unsplash.com/photo-1515165562835-cf7d4c04b09a?auto=format&fit=crop&w=600&q=80" alt="Business">
-    </div>
   </div>
 
   <div class="section" id="services-section">
@@ -321,10 +431,46 @@
     <div id="services"></div>
   </div>
 
+  <div class="section partners" id="partners-section">
+    <h2 id="partners-title">Наши партнёры</h2>
+    <div class="partners-logos">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Mercedes_Benz_Logo_2010.svg" alt="Mercedes-Benz">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Bosch-logotype.svg" alt="Bosch">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Toyota_logo.svg" alt="Toyota">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/BMW_logo_%28gray%29.svg" alt="BMW">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Mann-Filter_Logo_2017.svg" alt="Mann Filter">
+    </div>
+  </div>
+
+  <div class="section" id="gallery-section">
+    <h2>Галерея</h2>
+    <div class="slider-row">
+      <button class="slider-btn" onclick="slide(-1)">&#8592;</button>
+      <img id="slideimg" src="" alt="Gallery" class="slider-img" style="width:340px;height:220px;">
+      <button class="slider-btn" onclick="slide(1)">&#8594;</button>
+    </div>
+    <div id="gallery-thumbs" class="photo-row" style="margin-top:18px;"></div>
+  </div>
+
   <div class="section offices" id="contacts-section">
     <h2>Контакты и офисы</h2>
     <ul id="offices" class="office-list"></ul>
     <ul id="contacts" class="contacts-list"></ul>
+    <div class="contact-btns">
+      <a href="https://wa.me/971558913535" target="_blank">WhatsApp</a>
+      <a href="https://t.me/GoldenRunat" target="_blank" class="telegram">Telegram</a>
+    </div>
+  </div>
+
+  <div class="section" id="contact-form-section">
+    <h2>Связаться с нами</h2>
+    <form id="contact-form" style="max-width:420px;margin:auto;">
+      <input type="text" id="cf-name" class="form-field" placeholder="Ваше имя" required>
+      <input type="email" id="cf-email" class="form-field" placeholder="E-mail" required>
+      <textarea id="cf-msg" class="form-field" placeholder="Сообщение" required style="min-height:70px;"></textarea>
+      <button id="cf-send" type="submit" class="lux-btn">Отправить</button>
+      <div id="cf-result" style="margin-top:8px;font-size:0.96em;"></div>
+    </form>
   </div>
 
   <div class="section reviews" id="reviews-section">
@@ -333,8 +479,9 @@
   </div>
 
   <footer>
-    &copy; 2012–2025 Golden Runat General Trading<br>
-    Глобальная доставка и оптовые решения для вашего бизнеса.
+    &copy; 2012–2025 Golden Runat General Trading &mdash; Global B2B Excellence
+    <br>
+    <span>Премиум-логистика, оптовые поставки и сервис на международном уровне</span>
   </footer>
 </body>
 </html>
