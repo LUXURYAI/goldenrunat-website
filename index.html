@@ -142,14 +142,6 @@
     }
     .slider-btn:hover { color: #fff;}
     .office-list li, .contacts-list li { margin-bottom: 7px;}
-    .partners-logos img {
-      margin: 0 20px 14px 0;
-      vertical-align: middle;
-      height: 38px;
-      filter: grayscale(50%) brightness(1.15) drop-shadow(0 2px 4px #ffd70022);
-      transition: filter 0.19s;
-    }
-    .partners-logos img:hover { filter: none;}
     .review {
       margin-bottom: 16px;
       padding-left: 15px;
@@ -184,6 +176,17 @@
       text-align:center;
     }
     footer span { color:#fff;font-size:0.97em;}
+    /* PARTNERS (локальные PNG) */
+    .partners-logos-local img {
+      margin: 0 20px 14px 0;
+      vertical-align: middle;
+      background:#fff;
+      border-radius:9px;
+      padding:7px 13px;
+      box-shadow:0 2px 18px #ffd70033;
+      transition: filter 0.19s;
+    }
+    .partners-logos-local img:hover { filter: brightness(1.11);}
     @media (max-width: 800px) {
       .section { padding: 12px 2px; }
       nav { gap: 17px;}
@@ -206,7 +209,7 @@
     }
   </style>
   <script>
-    // Мультиязычность: новые тексты RU/EN/AR
+    // ... (тот же скрипт для мультиязычности, галереи и формы — его не меняем)
     const translations = {
       ru: {
         nav: ['О компании','Услуги','Партнёры','Галерея','Контакты','Отзывы'],
@@ -296,21 +299,21 @@
         nav: ['عن الشركة','الخدمات','الشركاء','معرض الصور','التواصل','آراء العملاء'],
         about: `<b>نحن متخصصون في التوريد بالجملة لقطع غيار السيارات الجديدة والمستعملة إلى جميع أنحاء العالم، مع ضمان الجودة العالية وأفضل الأسعار لعملائنا.</b>
         <ul>
-          <li>مستودعات ومكاتب في الإمارات، جورجيا، روسيا، ألمانيا، النمسا، أرمينيا — تجهيز وشحن سريع إلى أكثر من 100 دولة.</li>
-          <li>مستودعات وشركة نقل خاصة: تحكم كامل في اللوجستيات وأقل أوقات التسليم.</li>
-          <li>خدمات التخليص الجمركي: توثيق، تخليص واستيراد وتصدير البضائع.</li>
-          <li>مراقبة أونلاين: تحميل أمام الكاميرات وشفافية في جميع المراحل.</li>
-          <li>تركيز على قطع الغيار: تشكيلة واسعة، جودة، أسعار منافسة.</li>
+          <li>مستودعات ومكاتب في الإمارات وجورجيا وروسيا وألمانيا والنمسا وأرمينيا — تجهيز سريع وشحن إلى أكثر من 100 دولة.</li>
+          <li>مستودعات وشركة نقل خاصة: تحكم كامل في اللوجستيات وأسرع أوقات التسليم.</li>
+          <li>خدمات جمركية: مستندات، تخليص جمركي وإجراءات التصدير والاستيراد.</li>
+          <li>مراقبة عبر الإنترنت: التحميل تحت الكاميرات وشفافية في كل مرحلة.</li>
+          <li>التركيز على قطع الغيار: تشكيلة واسعة وجودة عالية وأسعار منافسة.</li>
         </ul>
-        <div style="margin-top:8px;"><b>Golden Runat — شريكك الموثوق في توريد قطع غيار السيارات بالجملة مع ضمان الجودة وخدمة شخصية.</b></div>`,
+        <div style="margin-top:8px;"><b>جولدن رونات هو شريكك الموثوق لتوريد قطع غيار السيارات بالجملة بجودة مضمونة وخدمة شخصية.</b></div>`,
         services: `<ul>
-          <li><b>توريد قطع غيار السيارات (جديدة ومستعملة) بالجملة:</b> تجهيز سريع وشحن عالمي. ضمان جودة وتشكيلة واسعة.</li>
-          <li><b>سيارات، معدات، أثاث بالجملة:</b> توريد ودعم شحنات كبيرة للأعمال.</li>
-          <li><b>تخليص جمركي متكامل:</b> خدمات وساطة جمركية، توثيق وتخليص.</li>
-          <li><b>نقل متعدد الوسائط:</b> بحري، جوي، بري. لوجستيات خاصة وتحكم كامل في المواعيد.</li>
-          <li><b>خدمة شخصية وضمانات:</b> نهج فردي، دعم واستشارة 24/7.</li>
+          <li><b>توريد قطع غيار السيارات (جديدة ومستعملة):</b> تجهيز سريع وشحن إلى جميع أنحاء العالم. الجودة والاختيار الواسع مضمونان.</li>
+          <li><b>سيارات، معدات، أثاث بالجملة:</b> توريد ودعم للطلبات الكبيرة للشركات.</li>
+          <li><b>تخليص جمركي شامل:</b> خدمات وساطة جمركية، تخليص مستندات التصدير والاستيراد.</li>
+          <li><b>النقل متعدد الوسائط:</b> الشحن البحري والجوي والبري. لوجستيات وتحكم كامل بالمواعيد.</li>
+          <li><b>خدمة وضمان شخصي:</b> نهج فردي ودعم واستشارات 24/7.</li>
         </ul>`,
-        partners: `شركاؤنا الرئيسيون:`,
+        partners: `الشركاء الرئيسيون:`,
         offices: `<li><b>الإمارات:</b> +971 55 891 3535</li>
           <li><b>جورجيا:</b> +995 514 004 000</li>
           <li><b>روسيا (موسكو):</b> +7 977 860 3535</li>
@@ -337,45 +340,27 @@
     };
 
     const photos = [
-      "gallery1.jpeg",
-      "gallery2.jpeg",
-      "gallery3.jpeg",
-      "gallery4.jpeg",
-      "gallery5.jpeg",
-      "gallery6.jpeg",
-      "gallery7.jpeg",
-      "gallery8.jpeg"
+      "gallery1.jpeg","gallery2.jpeg","gallery3.jpeg","gallery4.jpeg",
+      "gallery5.jpeg","gallery6.jpeg","gallery7.jpeg","gallery8.jpeg"
     ];
 
     let lang = 'ru';
     function switchLang(newLang) {
       lang = newLang;
-      // Навигация
       const navLinks = document.querySelectorAll('nav a');
       translations[lang].nav.forEach((txt, idx) => navLinks[idx].textContent = txt);
-      // About
       document.getElementById('about').innerHTML = translations[lang].about;
-      // Services
       document.getElementById('services').innerHTML = translations[lang].services;
-      // Partners
       document.getElementById('partners-title').textContent = translations[lang].partners;
-      // Offices
       document.getElementById('offices').innerHTML = translations[lang].offices;
-      // Contacts
       document.getElementById('contacts').innerHTML = translations[lang].contacts;
-      // Reviews
       document.getElementById('reviews').innerHTML = translations[lang].reviews.map(r=>`<div class="review">${r}</div>`).join('');
-      // Слоган
       document.querySelector('.slogan').textContent = translations[lang].slogan;
-      // Contact form
       document.getElementById('cf-name').placeholder = translations[lang].contact_form.name;
       document.getElementById('cf-email').placeholder = translations[lang].contact_form.email;
       document.getElementById('cf-msg').placeholder = translations[lang].contact_form.message;
       document.getElementById('cf-send').textContent = translations[lang].contact_form.send;
-      // RTL для арабского
       document.body.dir = (lang==='ar') ? 'rtl' : 'ltr';
-
-      // Языковое меню
       document.querySelectorAll('.lang-switch button').forEach(btn=>{
         btn.classList.toggle('active', btn.dataset.lang===lang);
       });
@@ -385,18 +370,14 @@
       i=(i+dir+photos.length)%photos.length;
       document.getElementById('slideimg').src=photos[i];
     }
-
     window.onload = function() {
       switchLang('ru');
       document.querySelectorAll('.lang-switch button').forEach(btn=>{
         btn.onclick = ()=>switchLang(btn.dataset.lang);
       });
-      // Слайдер
       document.getElementById('slideimg').src = photos[0];
-      // Галерея миниатюр
       let gal = document.getElementById('gallery-thumbs');
       gal.innerHTML = photos.map((src,idx)=>`<img src="${src}" class="slider-img" onclick="document.getElementById('slideimg').src='${src}'">`).join('');
-      // Форма
       document.getElementById('contact-form').onsubmit = function(e){
         e.preventDefault();
         document.getElementById('cf-result').textContent = translations[lang].contact_form.thanks;
@@ -438,14 +419,15 @@
     <div id="services"></div>
   </div>
 
-  <div class="section partners" id="partners-section">
-    <h2 id="partners-title">Наши партнёры</h2>
-    <div class="partners-logos">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Mercedes_Benz_Logo_2010.svg" alt="Mercedes-Benz">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Bosch-logotype.svg" alt="Bosch">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Toyota_logo.svg" alt="Toyota">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/BMW_logo_%28gray%29.svg" alt="BMW">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Mann-Filter_Logo_2017.svg" alt="Mann Filter">
+  <!-- Партнёры — теперь ЛОКАЛЬНЫЕ PNG -->
+  <div class="section partners" id="partners-section" style="background:#fff2;border-radius:18px;">
+    <h2 id="partners-title" style="color:#ffd700;">Наши ключевые партнёры</h2>
+    <div class="partners-logos-local" style="display:flex;justify-content:center;gap:38px;flex-wrap:wrap;padding:18px 0;">
+      <img src="partner1.png" alt="Mercedes-Benz" style="height:48px;">
+      <img src="partner2.png" alt="Bosch" style="height:38px;">
+      <img src="partner3.png" alt="Toyota" style="height:44px;">
+      <img src="partner4.png" alt="BMW" style="height:42px;">
+      <img src="partner5.png" alt="Mann Filter" style="height:44px;">
     </div>
   </div>
 
