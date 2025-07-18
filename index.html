@@ -206,22 +206,25 @@
     }
   </style>
   <script>
-    // Простейшая мультиязычность на RU/EN/AR
+    // Мультиязычность: новые тексты RU/EN/AR
     const translations = {
       ru: {
         nav: ['О компании','Услуги','Партнёры','Галерея','Контакты','Отзывы'],
-        about: `<b>Мы предлагаем индивидуальные решения для бизнеса и частных клиентов, гарантируя надежную и своевременную доставку грузов, оборудования и товаров по всему миру.</b>
+        about: `<b>Мы специализируемся на оптовых поставках новых и б/у автозапчастей в любые страны мира, обеспечивая высокое качество продукции и максимально выгодные цены для наших клиентов.</b>
         <ul>
-          <li>Основана в 2012 году. Работаем с клиентами в более чем 100 странах.</li>
-          <li>Глобальная сеть: офисы в ОАЭ, Грузии, России, Германии, Австрии, Армении</li>
-          <li>Онлайн-погрузка, контроль, доступ к камерам, прозрачность процессов</li>
-          <li>Собственный склад и компания-перевозчик</li>
-        </ul>`,
+          <li>Склады и офисы в ОАЭ, Грузии, России, Германии, Австрии и Армении — быстрая комплектация и отгрузка более чем в 100 стран.</li>
+          <li>Собственные склады и перевозочная компания: полный контроль логистики, минимальные сроки.</li>
+          <li>Брокерские услуги: оформление, растаможка и затамаживание грузов.</li>
+          <li>Онлайн-контроль: погрузка под камерами и прозрачность всех этапов.</li>
+          <li>Акцент на автозапчастях: широкий ассортимент, качество, низкие цены.</li>
+        </ul>
+        <div style="margin-top:8px;"><b>Golden Runat — ваш надёжный партнёр для закупки автозапчастей оптом, с гарантией качества и индивидуальным подходом.</b></div>`,
         services: `<ul>
-          <li>Мультимодальные перевозки (морской, воздушный, наземный транспорт)</li>
-          <li>Оптовые поставки автозапчастей, автомобилей, техники, мебели</li>
-          <li>Таможенное оформление под ключ</li>
-          <li>Гарантии и персонализированный сервис</li>
+          <li><b>Оптовые поставки автозапчастей (новых и б/у):</b> Быстрая комплектация и отправка по всему миру. Гарантия качества и широкий ассортимент.</li>
+          <li><b>Автомобили, техника, мебель оптом:</b> Поставка и сопровождение крупных партий для бизнеса.</li>
+          <li><b>Таможенное оформление под ключ:</b> Брокерские услуги, растаможка и затамаживание, вся документация.</li>
+          <li><b>Мультимодальные перевозки:</b> Морской, воздушный, наземный транспорт. Собственная логистика и контроль сроков.</li>
+          <li><b>Персонализированный сервис и гарантии:</b> Индивидуальный подход, поддержка и консультирование 24/7.</li>
         </ul>`,
         partners: `Наши ключевые партнёры:`,
         offices: `<li><b>ОАЭ:</b> +971 55 891 3535</li>
@@ -249,18 +252,21 @@
       },
       en: {
         nav: ['About','Services','Partners','Gallery','Contacts','Reviews'],
-        about: `<b>We offer customized solutions for businesses and individuals, ensuring reliable and timely delivery of goods, equipment, and products worldwide.</b>
+        about: `<b>We specialize in wholesale supply of new and used auto parts to any country in the world, ensuring high quality and the best prices for our customers.</b>
         <ul>
-          <li>Founded in 2012. We work with clients in over 100 countries.</li>
-          <li>Global network: Offices in UAE, Georgia, Russia, Germany, Austria, Armenia</li>
-          <li>Online cargo loading, monitoring, camera access, full transparency</li>
-          <li>Own warehouse and carrier company</li>
-        </ul>`,
+          <li>Warehouses and offices in UAE, Georgia, Russia, Germany, Austria, and Armenia — fast processing and shipping to 100+ countries.</li>
+          <li>Own warehouses and transport company: full logistics control, minimal delivery times.</li>
+          <li>Brokerage services: documentation, customs clearance and declaration.</li>
+          <li>Online control: loading under cameras and transparent processes at every stage.</li>
+          <li>Focus on auto parts: wide selection, quality, low prices.</li>
+        </ul>
+        <div style="margin-top:8px;"><b>Golden Runat is your reliable partner for wholesale auto parts supply with guaranteed quality and a personalized approach.</b></div>`,
         services: `<ul>
-          <li>Multimodal shipping (sea, air, land transport)</li>
-          <li>Wholesale supply of auto parts, cars, equipment, furniture</li>
-          <li>Customs clearance turnkey</li>
-          <li>Guarantees and personalized service</li>
+          <li><b>Wholesale supply of auto parts (new & used):</b> Fast picking and worldwide shipping. Guaranteed quality and wide range.</li>
+          <li><b>Cars, equipment, furniture wholesale:</b> Delivery and support of large lots for business.</li>
+          <li><b>Turnkey customs clearance:</b> Brokerage services, customs documentation, clearance and declaration.</li>
+          <li><b>Multimodal transportation:</b> Sea, air, and land transport. Own logistics and timing control.</li>
+          <li><b>Personalized service and guarantees:</b> Individual approach, support and consulting 24/7.</li>
         </ul>`,
         partners: `Our key partners:`,
         offices: `<li><b>UAE:</b> +971 55 891 3535</li>
@@ -288,55 +294,57 @@
       },
       ar: {
         nav: ['عن الشركة','الخدمات','الشركاء','معرض الصور','التواصل','آراء العملاء'],
-        about: `<b>نقدم حلولاً مخصصة للشركات والعملاء الأفراد، مع ضمان التسليم الموثوق وفي الوقت المحدد للبضائع والمعدات والمنتجات حول العالم.</b>
+        about: `<b>نحن متخصصون في التوريد بالجملة لقطع غيار السيارات الجديدة والمستعملة إلى جميع أنحاء العالم، مع ضمان الجودة العالية وأفضل الأسعار لعملائنا.</b>
         <ul>
-          <li>تأسست في 2012. نعمل مع عملاء في أكثر من 100 دولة.</li>
-          <li>شبكة عالمية: مكاتب في الإمارات، جورجيا، روسيا، ألمانيا، النمسا، أرمينيا</li>
-          <li>تحميل بضائع أونلاين، مراقبة بالكاميرات، شفافية كاملة</li>
-          <li>مستودع وشركة نقل خاصة</li>
-        </ul>`,
+          <li>مستودعات ومكاتب في الإمارات، جورجيا، روسيا، ألمانيا، النمسا، أرمينيا — تجهيز وشحن سريع إلى أكثر من 100 دولة.</li>
+          <li>مستودعات وشركة نقل خاصة: تحكم كامل في اللوجستيات وأقل أوقات التسليم.</li>
+          <li>خدمات التخليص الجمركي: توثيق، تخليص واستيراد وتصدير البضائع.</li>
+          <li>مراقبة أونلاين: تحميل أمام الكاميرات وشفافية في جميع المراحل.</li>
+          <li>تركيز على قطع الغيار: تشكيلة واسعة، جودة، أسعار منافسة.</li>
+        </ul>
+        <div style="margin-top:8px;"><b>Golden Runat — شريكك الموثوق في توريد قطع غيار السيارات بالجملة مع ضمان الجودة وخدمة شخصية.</b></div>`,
         services: `<ul>
-          <li>شحن متعدد الوسائط (بحري، جوي، بري)</li>
-          <li>توريد قطع غيار السيارات، السيارات، المعدات، الأثاث بالجملة</li>
-          <li>تخليص جمركي متكامل</li>
-          <li>ضمانات وخدمة شخصية</li>
+          <li><b>توريد قطع غيار السيارات (جديدة ومستعملة) بالجملة:</b> تجهيز سريع وشحن عالمي. ضمان جودة وتشكيلة واسعة.</li>
+          <li><b>سيارات، معدات، أثاث بالجملة:</b> توريد ودعم شحنات كبيرة للأعمال.</li>
+          <li><b>تخليص جمركي متكامل:</b> خدمات وساطة جمركية، توثيق وتخليص.</li>
+          <li><b>نقل متعدد الوسائط:</b> بحري، جوي، بري. لوجستيات خاصة وتحكم كامل في المواعيد.</li>
+          <li><b>خدمة شخصية وضمانات:</b> نهج فردي، دعم واستشارة 24/7.</li>
         </ul>`,
         partners: `شركاؤنا الرئيسيون:`,
         offices: `<li><b>الإمارات:</b> +971 55 891 3535</li>
           <li><b>جورجيا:</b> +995 514 004 000</li>
           <li><b>روسيا (موسكو):</b> +7 977 860 3535</li>
-          <li><b>ليبيتسك:</b> +7 915 858 0777</li>
+          <li><b>ليبetsk:</b> +7 915 858 0777</li>
           <li><b>ألمانيا:</b> +49 170 352 5807</li>
           <li><b>النمسا:</b> +43 660 555 5755</li>
           <li><b>أرمينيا:</b> +374 77 199 133</li>`,
-        contacts: `<li><b>الإيميل:</b> goldenrunat@gmail.com</li>
-          <li><b>انستغرام:</b> <a href="https://www.instagram.com/golden_runat?igsh=dmg5ZXBsOW9zYjN4" style="color:#ffd700;">@golden_runat</a></li>`,
+        contacts: `<li><b>البريد الإلكتروني:</b> goldenrunat@gmail.com</li>
+          <li><b>إنستغرام:</b> <a href="https://www.instagram.com/golden_runat?igsh=dmg5ZXBsOW9zYjN4" style="color:#ffd700;">@golden_runat</a></li>`,
         reviews: [
-          "“نتعامل منذ أكثر من 5 سنوات، دائماً بسرعة وموثوقية.” — ألكسندر، موسكو",
-          "“توصيل مثالي وتعامل شخصي.” — أحمد، دبي",
-          "“المورد الرئيسي لقطع الغيار لدينا.” — فيكتوريا، ألمانيا"
+          '“نتعامل معهم منذ أكثر من 5 سنوات، دائماً سريعون وموثوقون.” — ألكسندر، موسكو',
+          '“توصيل مثالي وخدمة شخصية.” — أحمد، دبي',
+          '“المورد الرئيسي لقطع غيار السيارات لدينا.” — فيكتوريا، ألمانيا'
         ],
-        slogan: "نقدم الأفضل منذ 2012",
+        slogan: 'نقدم الأفضل منذ عام 2012',
         contact_form: {
           name: "اسمك",
           email: "البريد الإلكتروني",
-          message: "رسالة",
+          message: "رسالتك",
           send: "إرسال",
-          thanks: "شكرًا لك، تم إرسال رسالتك!"
+          thanks: "شكرًا، تم إرسال رسالتك!"
         }
       }
     };
 
-    // Картинки галереи/слайдера (ваши фото)
     const photos = [
-      "WhatsApp Image 2025-07-18 at 21.07.29.jpeg",
-      "WhatsApp Image 2025-07-18 at 21.07.28 (1).jpeg",
-      "WhatsApp Image 2025-07-18 at 21.07.28.jpeg",
-      "WhatsApp Image 2025-07-18 at 21.07.27 (2).jpeg",
-      "WhatsApp Image 2025-07-18 at 21.07.27 (1).jpeg",
-      "WhatsApp Image 2025-07-18 at 21.07.27.jpeg",
-      "WhatsApp Image 2025-07-18 at 21.07.26 (1).jpeg",
-      "WhatsApp Image 2025-07-18 at 21.07.26.jpeg"
+      "gallery1.jpeg",
+      "gallery2.jpeg",
+      "gallery3.jpeg",
+      "gallery4.jpeg",
+      "gallery5.jpeg",
+      "gallery6.jpeg",
+      "gallery7.jpeg",
+      "gallery8.jpeg"
     ];
 
     let lang = 'ru';
@@ -372,7 +380,6 @@
         btn.classList.toggle('active', btn.dataset.lang===lang);
       });
     }
-    // Слайдер фото
     let i=0;
     function slide(dir){
       i=(i+dir+photos.length)%photos.length;
@@ -401,7 +408,7 @@
 </head>
 <body>
   <header>
-    <img src="WhatsApp Image 2025-07-18 at 21.07.30.jpeg" class="logo-img" alt="Golden Runat logo">
+    <img src="logo.jpeg" class="logo-img" alt="Golden Runat logo">
     <div class="header-center">
       <h1>Golden Runat General Trading</h1>
       <div class="slogan">Поставляем лучшее с 2012 года</div>
