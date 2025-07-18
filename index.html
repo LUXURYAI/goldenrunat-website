@@ -4,76 +4,332 @@
   <meta charset="UTF-8">
   <title>Golden Runat General Trading</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
   <style>
-    body { background: #0b1f33; color: #fff; font-family: Arial, sans-serif; margin: 0; }
-    header { background: #001b2e; padding: 30px 0 20px 0; text-align: center; }
-    h1 { color: #ffd700; font-size: 2.5em; letter-spacing: 2px; }
-    h2 { color: #ffd700; margin-top: 40px; }
-    .section { max-width: 800px; margin: 40px auto 0 auto; padding: 20px; background: rgba(255,255,255,0.04); border-radius: 16px; box-shadow: 0 6px 24px 0 rgba(0,0,0,0.13);}
-    .contacts, .offices { margin-top: 16px;}
-    .gold { color: #ffd700;}
-    .lang { float: right; margin: 15px 30px 0 0; }
-    footer { text-align:center; margin: 50px 0 20px 0; font-size: 0.95em; color: #ccc;}
-    @media (max-width: 600px) {
-      h1 { font-size: 1.5em; }
-      .section { margin: 20px 4px; padding: 10px;}
-      .lang { float: none; display: block; margin: 0 0 10px 0;}
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(135deg, #132743 0%, #22418C 80%);
+      color: #fff;
+      min-height: 100vh;
+    }
+    header {
+      background: #0a1c2e;
+      padding: 38px 0 28px 0;
+      text-align: center;
+      box-shadow: 0 6px 24px 0 rgba(14,22,50,0.13);
+      position: relative;
+    }
+    .logo-img {
+      width: 92px;
+      height: 92px;
+      border-radius: 24px;
+      object-fit: cover;
+      background: #fff;
+      box-shadow: 0 4px 24px #ffd70055;
+      margin-bottom: 8px;
+    }
+    h1 {
+      color: #ffd700;
+      font-size: 2.5em;
+      margin: 0 0 10px 0;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    .slogan {
+      color: #ffd700;
+      font-size: 1.2em;
+      margin-bottom: 12px;
+      letter-spacing: 1.5px;
+    }
+    nav {
+      margin: 18px 0 0 0;
+      font-size: 1.1em;
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+    }
+    nav a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 28px;
+      right: 38px;
+      font-size: 1em;
+    }
+    .lang-switch button {
+      background: none;
+      border: none;
+      color: #ffd700;
+      font-weight: 600;
+      margin-left: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: color 0.18s;
+    }
+    .lang-switch button.active,
+    .lang-switch button:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .section {
+      max-width: 950px;
+      margin: 40px auto 0 auto;
+      padding: 28px 34px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 24px;
+      box-shadow: 0 8px 34px 0 rgba(0,0,0,0.11);
+      animation: fadein 0.8s cubic-bezier(.23,1.02,.59,.95);
+    }
+    .section h2 {
+      color: #ffd700;
+      margin-top: 0;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .offices, .contacts, .reviews {
+      margin-top: 22px;
+    }
+    .gold {
+      color: #ffd700;
+      font-weight: 600;
+    }
+    .review {
+      margin-bottom: 16px;
+      padding-left: 18px;
+      border-left: 4px solid #ffd70077;
+      font-style: italic;
+    }
+    .office-list li, .contacts-list li {
+      margin-bottom: 7px;
+    }
+    .photo-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .photo-row img {
+      border-radius: 14px;
+      width: 180px;
+      height: 120px;
+      object-fit: cover;
+      box-shadow: 0 4px 14px #1b2d5044;
+      transition: transform 0.23s;
+    }
+    .photo-row img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 8px 22px #ffd70044;
+    }
+    footer {
+      text-align:center;
+      margin: 48px 0 18px 0;
+      font-size: 1.05em;
+      color: #ccd;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 800px) {
+      .section { padding: 15px 6px; }
+      nav { gap: 17px;}
+      .lang-switch { right: 10px; }
+      .photo-row img { width: 120px; height: 80px;}
+    }
+    @media (max-width: 500px) {
+      h1 { font-size: 1.1em;}
+      .section { margin: 18px 2px; padding: 7px 3px;}
+      .photo-row { gap: 6px; }
+      .photo-row img { width: 88px; height: 58px;}
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(40px);}
+      to   { opacity: 1; transform: translateY(0);}
     }
   </style>
+  <script>
+    // Простая мультиязычность на RU/EN/AR
+    const translations = {
+      ru: {
+        nav: ['О компании','Услуги','Контакты','Отзывы'],
+        about: `<b>Мы предлагаем индивидуальные решения для бизнеса и частных клиентов, гарантируя надежную и своевременную доставку грузов, оборудования и товаров по всему миру.</b><br>
+          <ul>
+            <li>Основана в 2012 году. Работаем с клиентами в более чем 100 странах.</li>
+            <li>Глобальная сеть: офисы в ОАЭ, Грузии, России, Германии, Австрии, Армении</li>
+            <li>Онлайн-погрузка, контроль, доступ к камерам, прозрачность процессов</li>
+            <li>Собственный склад и компания-перевозчик</li>
+          </ul>`,
+        services: `<ul>
+          <li>Мультимодальные перевозки (морской, воздушный, наземный транспорт)</li>
+          <li>Оптовые поставки автозапчастей, автомобилей, техники, мебели</li>
+          <li>Таможенное оформление под ключ</li>
+          <li>Гарантии и персонализированный сервис</li>
+        </ul>`,
+        offices: `<li><b>ОАЭ:</b> +971 55 891 3535</li>
+          <li><b>Грузия:</b> +995 514 004 000</li>
+          <li><b>Россия (Москва):</b> +7 977 860 3535</li>
+          <li><b>Липецк:</b> +7 915 858 0777</li>
+          <li><b>Германия:</b> +49 170 352 5807</li>
+          <li><b>Австрия:</b> +43 660 555 5755</li>
+          <li><b>Армения:</b> +374 77 199 133</li>`,
+        contacts: `<li><b>Email:</b> goldenrunat@gmail.com</li>
+          <li><b>Instagram:</b> <a href="https://www.instagram.com/golden_runat?igsh=dmg5ZXBsOW9zYjN4" style="color:#ffd700;">@golden_runat</a></li>`,
+        reviews: [
+          '“Работаем уже более 5 лет, всегда всё быстро и надёжно.” — Александр, Москва',
+          '“Безупречная доставка и персональный подход.” — Ahmed, Дубай',
+          '“Наш основной поставщик автозапчастей.” — Виктория, Германия'
+        ],
+        slogan: 'Поставляем лучшее с 2012 года'
+      },
+      en: {
+        nav: ['About','Services','Contacts','Reviews'],
+        about: `<b>We offer customized solutions for businesses and individuals, ensuring reliable and timely delivery of goods, equipment, and products worldwide.</b><br>
+        <ul>
+          <li>Founded in 2012. We work with clients in over 100 countries.</li>
+          <li>Global network: Offices in UAE, Georgia, Russia, Germany, Austria, Armenia</li>
+          <li>Online cargo loading, monitoring, camera access, full transparency</li>
+          <li>Own warehouse and carrier company</li>
+        </ul>`,
+        services: `<ul>
+          <li>Multimodal shipping (sea, air, land transport)</li>
+          <li>Wholesale supply of auto parts, cars, equipment, furniture</li>
+          <li>Customs clearance turnkey</li>
+          <li>Guarantees and personalized service</li>
+        </ul>`,
+        offices: `<li><b>UAE:</b> +971 55 891 3535</li>
+          <li><b>Georgia:</b> +995 514 004 000</li>
+          <li><b>Russia (Moscow):</b> +7 977 860 3535</li>
+          <li><b>Lipetsk:</b> +7 915 858 0777</li>
+          <li><b>Germany:</b> +49 170 352 5807</li>
+          <li><b>Austria:</b> +43 660 555 5755</li>
+          <li><b>Armenia:</b> +374 77 199 133</li>`,
+        contacts: `<li><b>Email:</b> goldenrunat@gmail.com</li>
+          <li><b>Instagram:</b> <a href="https://www.instagram.com/golden_runat?igsh=dmg5ZXBsOW9zYjN4" style="color:#ffd700;">@golden_runat</a></li>`,
+        reviews: [
+          '"We have been working for over 5 years, always fast and reliable." — Alexander, Moscow',
+          '"Perfect delivery and a personalized approach." — Ahmed, Dubai',
+          '"Our main supplier of auto parts." — Victoria, Germany'
+        ],
+        slogan: 'Delivering Excellence Since 2012'
+      },
+      ar: {
+        nav: ['عن الشركة','الخدمات','التواصل','آراء العملاء'],
+        about: `<b>نقدم حلولاً مخصصة للشركات والعملاء الأفراد، مع ضمان التسليم الموثوق وفي الوقت المحدد للبضائع والمعدات والمنتجات حول العالم.</b><br>
+        <ul>
+          <li>تأسست في 2012. نعمل مع عملاء في أكثر من 100 دولة.</li>
+          <li>شبكة عالمية: مكاتب في الإمارات، جورجيا، روسيا، ألمانيا، النمسا، أرمينيا</li>
+          <li>تحميل بضائع أونلاين، مراقبة بالكاميرات، شفافية كاملة</li>
+          <li>مستودع وشركة نقل خاصة</li>
+        </ul>`,
+        services: `<ul>
+          <li>شحن متعدد الوسائط (بحري، جوي، بري)</li>
+          <li>توريد قطع غيار السيارات، السيارات، المعدات، الأثاث بالجملة</li>
+          <li>تخليص جمركي متكامل</li>
+          <li>ضمانات وخدمة شخصية</li>
+        </ul>`,
+        offices: `<li><b>الإمارات:</b> +971 55 891 3535</li>
+          <li><b>جورجيا:</b> +995 514 004 000</li>
+          <li><b>روسيا (موسكو):</b> +7 977 860 3535</li>
+          <li><b>ليبيتسك:</b> +7 915 858 0777</li>
+          <li><b>ألمانيا:</b> +49 170 352 5807</li>
+          <li><b>النمسا:</b> +43 660 555 5755</li>
+          <li><b>أرمينيا:</b> +374 77 199 133</li>`,
+        contacts: `<li><b>الإيميل:</b> goldenrunat@gmail.com</li>
+          <li><b>انستغرام:</b> <a href="https://www.instagram.com/golden_runat?igsh=dmg5ZXBsOW9zYjN4" style="color:#ffd700;">@golden_runat</a></li>`,
+        reviews: [
+          "“نتعامل منذ أكثر من 5 سنوات، دائماً بسرعة وموثوقية.” — ألكسندر، موسكو",
+          "“توصيل مثالي وتعامل شخصي.” — أحمد، دبي",
+          "“المورد الرئيسي لقطع الغيار لدينا.” — فيكتوريا، ألمانيا"
+        ],
+        slogan: "نقدم الأفضل منذ 2012"
+      }
+    };
+
+    let lang = 'ru';
+
+    function switchLang(newLang) {
+      lang = newLang;
+      // Навигация
+      const navLinks = document.querySelectorAll('nav a');
+      translations[lang].nav.forEach((txt, idx) => navLinks[idx].textContent = txt);
+      // About
+      document.getElementById('about').innerHTML = translations[lang].about;
+      // Services
+      document.getElementById('services').innerHTML = translations[lang].services;
+      // Offices
+      document.getElementById('offices').innerHTML = translations[lang].offices;
+      // Contacts
+      document.getElementById('contacts').innerHTML = translations[lang].contacts;
+      // Reviews
+      document.getElementById('reviews').innerHTML = translations[lang].reviews.map(r=>`<div class="review">${r}</div>`).join('');
+      // Слоган
+      document.querySelector('.slogan').textContent = translations[lang].slogan;
+      // RTL для арабского
+      document.body.dir = (lang==='ar') ? 'rtl' : 'ltr';
+
+      // Языковое меню
+      document.querySelectorAll('.lang-switch button').forEach(btn=>{
+        btn.classList.toggle('active', btn.dataset.lang===lang);
+      });
+    }
+
+    window.onload = function() {
+      switchLang('ru');
+      document.querySelectorAll('.lang-switch button').forEach(btn=>{
+        btn.onclick = ()=>switchLang(btn.dataset.lang);
+      });
+    }
+  </script>
 </head>
 <body>
   <header>
-    <span class="lang">RU | EN | AR</span>
+    <div class="lang-switch">
+      <button data-lang="ru" class="active">RU</button> |
+      <button data-lang="en">EN</button> |
+      <button data-lang="ar">AR</button>
+    </div>
+    <img src="https://scontent-ams4-1.cdninstagram.com/v/t51.2885-19/439164286_965369281723690_4272486001800822944_n.jpg?stp=dst-jpg_s320x320&_nc_ht=scontent-ams4-1.cdninstagram.com&_nc_cat=101&_nc_ohc=Itbfh8us8igQ7kNvgF9k1jX&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AYBNbEY6qgTZzUOuYwYpGizfJU7XQ8SyK1hb7Y3oN5nJiw&oe=6682B5A7&_nc_sid=ee987c" class="logo-img" alt="Golden Runat logo">
     <h1>Golden Runat General Trading</h1>
-    <p class="gold">Поставляем лучшее с 2012 года</p>
+    <div class="slogan">Поставляем лучшее с 2012 года</div>
+    <nav>
+      <a href="#about-section">О компании</a>
+      <a href="#services-section">Услуги</a>
+      <a href="#contacts-section">Контакты</a>
+      <a href="#reviews-section">Отзывы</a>
+    </nav>
   </header>
 
-  <div class="section">
+  <div class="section" id="about-section">
     <h2>О компании</h2>
-    <p>Мы предлагаем индивидуальные решения для бизнеса и частных клиентов, гарантируя надежную и своевременную доставку грузов, оборудования и товаров по всему миру.<br>
-    Основана в 2012 году. Работаем с клиентами в более чем 100 странах.<br>
-    <b>Ключевые преимущества:</b>
-      <ul>
-        <li>Глобальная сеть: офисы в ОАЭ, Грузии, России, Германии, Австрии, Армении</li>
-        <li>Индивидуальный подход к грузу, бюджету и срокам</li>
-        <li>Онлайн-погрузка, контроль, доступ к камерам, прозрачность процессов</li>
-        <li>Собственный склад и компания-перевозчик</li>
-      </ul>
-    </p>
+    <div id="about"></div>
+    <div class="photo-row">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Warehouse">
+      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Logistics">
+      <img src="https://images.unsplash.com/photo-1515165562835-cf7d4c04b09a?auto=format&fit=crop&w=600&q=80" alt="Business">
+    </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="services-section">
     <h2>Услуги</h2>
-    <ul>
-      <li>Мультимодальные перевозки (морской, воздушный, наземный транспорт)</li>
-      <li>Оптовые поставки автозапчастей, автомобилей, техники, мебели</li>
-      <li>Таможенное оформление под ключ</li>
-      <li>Гарантии и персонализированный сервис</li>
-    </ul>
+    <div id="services"></div>
   </div>
 
-  <div class="section offices">
+  <div class="section offices" id="contacts-section">
     <h2>Контакты и офисы</h2>
-    <ul>
-      <li><b>ОАЭ:</b> +971 55 891 3535</li>
-      <li><b>Грузия:</b> +995 514 004 000</li>
-      <li><b>Россия (Москва):</b> +7 977 860 3535</li>
-      <li><b>Липецк:</b> +7 915 858 0777</li>
-      <li><b>Германия:</b> +49 170 352 5807</li>
-      <li><b>Австрия:</b> +43 660 555 5755</li>
-      <li><b>Армения:</b> +374 77 199 133</li>
-    </ul>
-    <p><b>Email:</b> goldenrunat@gmail.com<br>
-    <b>Instagram:</b> <a href="https://www.instagram.com/golden_runat?igsh=dmg5ZXBsOW9zYjN4" style="color:#ffd700;">@golden_runat</a></p>
+    <ul id="offices" class="office-list"></ul>
+    <ul id="contacts" class="contacts-list"></ul>
   </div>
 
-  <div class="section">
+  <div class="section reviews" id="reviews-section">
     <h2>Отзывы клиентов</h2>
-    <ul>
-      <li>“Работаем уже более 5 лет, всегда всё быстро и надёжно.” — Александр, Москва</li>
-      <li>“Безупречная доставка и персональный подход.” — Ahmed, Дубай</li>
-      <li>“Наш основной поставщик автозапчастей.” — Виктория, Германия</li>
-    </ul>
+    <div id="reviews"></div>
   </div>
 
   <footer>
